@@ -2,6 +2,10 @@
 
 @import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 
+body {
+  background-color: #080d27;
+}
+
 @theme {
   --color-p1: #2ef2ff;
   --color-p2: #3c52d9;
@@ -13,4 +17,26 @@
   --color-s3: #334679;
   --color-s4: #1959ad;
   --color-s5: #263466;
+}
+
+@layer components {
+  .list {
+    list-style: none;
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+    transition: color 0.2s ease;
+    cursor: pointer;
+    text-transform: uppercase;
+  }
+  .list:hover {
+    color: var(--color-p1);
+  }
+
+  .dots {
+    width: 7px;
+    height: 7px;
+    border-radius: 100%;
+    background-color: rgb(8, 68, 165);
+  }
 }
