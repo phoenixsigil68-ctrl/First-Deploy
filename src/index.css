@@ -4,6 +4,7 @@
 
 body {
   background-color: #080d27;
+  min-height: 200dvh;
 }
 
 @theme {
@@ -110,5 +111,11 @@ body {
     margin: 0 auto;
     max-width: 1252px;
     padding: 0 4rem;
+  }
+
+  .container-2 {
+    margin-inline: auto;
+    max-width: 1252px;
+    padding-inline: 4rem;
   }
 }
