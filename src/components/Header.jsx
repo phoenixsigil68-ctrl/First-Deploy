@@ -7,8 +7,8 @@ export const Header = () => {
   }
 
   return (
-    <header className="fixed top-0 left-0 right-0 w-full z-50 py-10">
-      <div className="flex justify-around items-center">
+    <header className="fixed top-0 left-0 right-0 w-full z-50 py-10 bg-transparent ">
+      <div className="flex justify-around items-center ">
         <NavLink title="Features" />
         <div className="dots" />
         <NavLink title="Pricing" />

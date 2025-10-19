@@ -20,6 +20,72 @@ body {
 }
 
 @layer components {
+  .outer-line::after,
+  ::before {
+    content: "";
+    width: 100%;
+    height: 104%;
+    background-color: var(--color-p1);
+    border-radius: 50px;
+    position: absolute;
+    z-index: -1;
+    top: 0;
+    opacity: 0;
+    padding: 3px 0;
+    transition: all 0.3s ease;
+    transform: scale(0);
+    transform-origin: left;
+  }
+
+  .outer-line:hover::before {
+    filter: blur(30px);
+  }
+
+  .outer-line:hover::after {
+    opacity: 1;
+    transform: scale(1);
+    transform-origin: right;
+  }
+
+  .custom-shadow:hover {
+    box-shadow: 0 0 20px rgb(129, 129, 129);
+  }
+
+  .g1 {
+    background: linear-gradient(rgba(196, 203, 245, 0.5), transparent);
+  }
+
+  .g2 {
+    background: linear-gradient(#3062a3, #19549f);
+  }
+
+  .g3 {
+    background: linear-gradient(#3c52d9, #0c1838);
+  }
+
+  .g4 {
+    background: linear-gradient(#253575, #162561);
+  }
+
+  .g5 {
+    background: linear-gradient(#334679, #162561);
+  }
+
+  .g6 {
+    background: linear-gradient(#334679, #0c1838);
+  }
+
+  .g7 {
+    background: linear-gradient(#1b275a, #0e1434);
+  }
+
+  .g8 {
+    background: linear-gradient(to right, transparent, #2ef2ff, transparent);
+  }
+
+  .g9 {
+    background: linear-gradient(#080d27, transparent);
+  }
   .list {
     list-style: none;
     color: white;
@@ -38,5 +104,11 @@ body {
     height: 7px;
     border-radius: 100%;
     background-color: rgb(8, 68, 165);
+  }
+
+  .container {
+    margin: 0 auto;
+    max-width: 1252px;
+    padding: 0 4rem;
   }
 }
