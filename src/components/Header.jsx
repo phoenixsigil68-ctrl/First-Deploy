@@ -18,7 +18,12 @@ export const Header = () => {
         <NavLink title="Pricing" />
 
         <LinkScroll to="hero" spy smooth>
-          <img src="/images/xora.svg" width={135} height={55} />
+          <img
+            src="/images/xora.svg"
+            width={135}
+            height={55}
+            className="cursor-pointer"
+          />
         </LinkScroll>
 
         <NavLink title="Faq" />

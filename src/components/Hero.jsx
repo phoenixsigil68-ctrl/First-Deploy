@@ -23,7 +23,12 @@ export const Hero = () => {
                     surprisingly powerful.
                   </p>
                   <LinkScroll>
-                    <Button title="Try it now" icon="/images/zap.svg" />
+                    <Button
+                      title="Try it now"
+                      icon="/images/zap.svg"
+                      divSize=""
+                      decoration="outer-line"
+                    />
                   </LinkScroll>
                 </div>
               </div>

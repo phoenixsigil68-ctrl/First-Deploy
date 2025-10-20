@@ -4,7 +4,6 @@
 
 body {
   background-color: #080d27;
-  min-height: 200dvh;
 }
 
 @theme {
@@ -21,8 +20,7 @@ body {
 }
 
 @layer components {
-  .outer-line::after,
-  ::before {
+  .outer-line::after {
     content: "";
     width: 100%;
     height: 104%;
@@ -32,14 +30,10 @@ body {
     z-index: -1;
     top: 0;
     opacity: 0;
-    padding: 3px 0;
+    padding: 0 0 3px 0;
     transition: all 0.3s ease;
     transform: scale(0);
     transform-origin: left;
-  }
-
-  .outer-line:hover::before {
-    filter: blur(30px);
   }
 
   .outer-line:hover::after {
