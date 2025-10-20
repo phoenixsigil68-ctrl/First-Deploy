@@ -46,6 +46,30 @@ body {
     box-shadow: 0 0 20px rgb(129, 129, 129);
   }
 
+  .glow::after {
+    content: "";
+    width: 100%;
+    padding: 0;
+    left: 0;
+    top: 0;
+    right: 0;
+    transform: translate(-50% -50%);
+    height: 100%;
+    border-radius: 100%;
+    z-index: 55;
+    position: absolute;
+    background-color: white;
+  }
+
+  .active {
+    color: rgb(255, 255, 118);
+  }
+
+  .glow:hover::after {
+    padding: 20px;
+    z-index: 33;
+    backdrop-filter: blur(10px);
+  }
   .g1 {
     background: linear-gradient(rgba(196, 203, 245, 0.5), transparent);
   }
@@ -71,7 +95,7 @@ body {
   }
 
   .g7 {
-    background: linear-gradient(#1b275a, #0e1434);
+    background: linear-gradient(45deg, #1b275a, #0e1434);
   }
 
   .g8 {

@@ -22,7 +22,7 @@ export const Hero = () => {
                     We designed XORA AI to be an easy to use, quick to learn and
                     surprisingly powerful.
                   </p>
-                  <LinkScroll>
+                  <LinkScroll to="features" spy smooth>
                     <Button
                       title="Try it now"
                       icon="/images/zap.svg"

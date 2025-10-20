@@ -1,6 +1,6 @@
 import React from "react";
 import { Element } from "react-scroll";
-import { features } from "../constants/index";
+import { features, details } from "../constants/index";
 import { Button } from "./Button";
 
 export const Features = () => {
@@ -10,8 +10,11 @@ export const Features = () => {
         <div className="container-2 ">
           <div className="relative p-5 flex flex-50 gap-3 border-2 border-s3 rounded-4xl justify-center z-10 g7 h-auto">
             {features.map((item) => (
-              <div key={item.id} className="relative z-20 p-5 flex-50">
-                <div className="w-full flex justify-start items-start -mt-10">
+              <div
+                key={item.id}
+                className="relative z-20 p-5 flex-50 border-r-5 border-r-s1 rounded-3xl"
+              >
+                <div className="w-full flex justify-start items-start -mt-10 ">
                   <div className="-ml-3 mb-12 flex justify-center items-center flex-col">
                     <div className="w-0.5 h-16 bg-s3" />
                     <img className="size-28 object-contain" src={item.icon} />
@@ -30,6 +33,26 @@ export const Features = () => {
                   divSize=""
                   decoration=""
                 />
+              </div>
+            ))}
+          </div>
+          <div className="relative p-10 flex justify-evenly items-center w-full g7 rounded-4xl border-2 border-s3">
+            {details.map((index) => (
+              <div
+                className="flex flex-col justify-center items-center gap-6 relative"
+                key={index.id}
+              >
+                <div className="relative cursor-pointer group">
+                  <img
+                    src={index.icon}
+                    className="size-20 relative z-10 hover:scale-110 transition-transform duration-300 ease-in"
+                  />
+                  <div className="absolute inset-0 rounded-full scale-0 group-hover:scale-150 opacity-0 group-hover:opacity-100 blur-2xl bg-white/30 transition-all duration-500"></div>
+                </div>
+
+                <h2 className="text-xl uppercase text-p5 text-center font-bold">
+                  {index.title}
+                </h2>
               </div>
             ))}
           </div>
