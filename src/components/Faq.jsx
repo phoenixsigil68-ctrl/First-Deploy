@@ -6,7 +6,7 @@ import { FaqItems } from "./FaqItems";
 export const Faq = () => {
   const halfLength = Math.floor(faq.length / 2);
   return (
-    <section>
+    <section className="mb-10">
       <Element name="faq">
         <div className="container-2 relative z-2 py-20">
           <div className="text-5xl font-bold text-center bg-gradient-to-r from-blue-500 to-pink-800 bg-clip-text text-transparent capitalize">

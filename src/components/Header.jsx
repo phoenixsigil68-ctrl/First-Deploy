@@ -56,9 +56,10 @@ export const Header = () => {
             className="cursor-pointer drop-shadow-lg" // Added drop-shadow for logo visibility
           />
         </LinkScroll>
-        <NavLink title="Faq" destination="faq" /> {/* Added destination */}
+        <NavLink title="Faq" destination="faq" activate={-80} />{" "}
+        {/* Added destination */}
         <div className="dots" />
-        <NavLink title="Download" destination="download" />{" "}
+        <NavLink title="Download" destination="download" activate={-100} />{" "}
         {/* Added destination */}
       </div>
     </header>

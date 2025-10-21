@@ -4,6 +4,7 @@ import { Hero } from "./components/Hero";
 import { Features } from "./components/Features";
 import { Pricing } from "./components/Pricing";
 import { Faq } from "./components/Faq";
+import { Download } from "./components/Download";
 function App() {
   return (
     <main className="overflow-hidden">
@@ -12,6 +13,7 @@ function App() {
       <Features />
       <Pricing />
       <Faq />
+      <Download />
     </main>
   );
 }

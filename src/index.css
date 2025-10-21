@@ -184,4 +184,14 @@ body {
     max-width: 1252px;
     padding-inline: 4rem;
   }
+
+  .download_tech-icon {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    size: full;
+    justify-items: center;
+    align-items: center;
+    transition: all 0.5s ease;
+  }
 }
