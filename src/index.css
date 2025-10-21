@@ -20,6 +20,54 @@ body {
 }
 
 @layer components {
+  .body-3 {
+    font-size: 20px;
+    line-height: 28px;
+    letter-spacing: 0.02em;
+  }
+
+  .faq-line_after::after {
+    content: "";
+    position: absolute;
+    top: -6px;
+    left: calc(50%-5px);
+    z-index: 4;
+    size: 10px;
+    border-radius: 50%;
+    border: 2px var(--color-s2) solid;
+  }
+
+  .faq-glow_before::before {
+    content: "";
+    position: absolute;
+    top: -160px;
+    left: calc(50%-160px);
+    z-index: 4;
+    size: 320px;
+    border-radius: 50%;
+    border: 2px var(--color-s4/25) solid;
+    mix-blend-mode: soft-light;
+    filter: blur(200px);
+  }
+
+  .faq-icon::before {
+    content: "";
+    position: absolute;
+    height: 2px;
+    width: 12px;
+    background-color: var(--color-p3);
+  }
+
+  .faq-icon::after {
+    content: "";
+    position: absolute;
+    height: 2px;
+    width: 12px;
+    rotate: 90deg;
+    background-color: var(--color-p3);
+    transition: all 0.5s ease;
+  }
+
   .outer-line::after {
     content: "";
     width: 100%;
