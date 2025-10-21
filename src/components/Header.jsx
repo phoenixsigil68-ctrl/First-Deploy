@@ -1,8 +1,9 @@
-import React from "react";
+import React, { act } from "react";
 import "../index.css";
 import { useState, useEffect } from "react";
 import { Link as LinkScroll } from "react-scroll";
 import clsx from "clsx";
+import { translateText } from "../Locales/translate";
 
 export const Header = () => {
   function NavLink({ title, destination, activate }) {
@@ -12,7 +13,8 @@ export const Header = () => {
         to={destination}
         spy
         smooth
-        activeClass="text-yellow-400 font-bold "
+        activeClass="text-yellow-200 font-bold "
+        offset={activate}
       >
         {title}
       </LinkScroll>
@@ -41,10 +43,10 @@ export const Header = () => {
       }}
     >
       <div className="flex justify-around items-center ">
-        <NavLink title="Features" destination="features" activate="active" />
+        <NavLink title="Features" destination="features" activate={-80} />
         {/* Added destination */}
         <div className="dots" />
-        <NavLink title="Pricing" destination="pricing" />{" "}
+        <NavLink title="Pricing" destination="pricing" activate={-80} />{" "}
         {/* Added destination */}
         <LinkScroll to="hero" spy smooth offset={-230}>
           <img
