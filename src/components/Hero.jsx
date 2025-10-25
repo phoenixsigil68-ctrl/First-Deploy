@@ -32,7 +32,7 @@ export const Hero = () => {
                   </LinkScroll>
                 </div>
               </div>
-              <div className="absolute left-[calc(50%-340px)] -top-85 pointer-events-none right-2 w-[1230px]">
+              <div className="absolute left-[calc(50%-340px)] -top-85 pointer-events-none right-2 w-[1230px] z-20">
                 <img src="/images/hero.png" className="w-full h-auto" />
               </div>
             </div>

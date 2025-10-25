@@ -2,12 +2,20 @@ import React from "react";
 import { Element } from "react-scroll";
 import { features, details } from "../constants/index";
 import { Button } from "./Button";
+import { useInView } from "react-intersection-observer";
 
 export const Features = () => {
+  const { ref, inView } = useInView({ threshold: 0.3, triggerOnce: true });
+
   return (
-    <section className="z-40">
+    <section
+      ref={ref}
+      className={`transition-all duration-700 ${
+        inView ? "opacity-100 translate-y-0 z-40" : "opacity-0 translate-y-50"
+      }`}
+    >
       <Element name="features">
-        <div className="container-2 ">
+        <div className="container-2 z-40">
           <div className="relative p-5 flex flex-50 gap-3 border-2 border-s3 rounded-4xl justify-center z-10 g7 h-auto">
             {features.map((item) => (
               <div

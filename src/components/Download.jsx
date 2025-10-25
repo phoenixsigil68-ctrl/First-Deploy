@@ -3,10 +3,18 @@ import { Element } from "react-scroll";
 import { Windows, Web, Android, Ios } from "../constants";
 import { Marker } from "./Marker";
 import { links } from "../constants";
+import { useInView } from "react-intersection-observer";
 
 export const Download = () => {
+  const [fade3, inFade3] = useInView({ threshold: 0.9, triggerOnce: true });
+
   return (
-    <section className="mt-10 mb-15">
+    <section
+      ref={fade3}
+      className={`mt-10 mb-15 transition-all duration-500 ${
+        inFade3 ? "scale-100 opacity-100" : "scale-0 opacity-0"
+      }`}
+    >
       <Element name="download">
         <div className="container-2 g7 flex flex-col justify-center items-start gap-8 py-10 px-6 rounded-2xl cursor-default">
           <div className="flex justify-start items-center">
