@@ -59,7 +59,7 @@ export const Header = () => {
         <NavLink title="Faq" destination="faq" activate={-80} />{" "}
         {/* Added destination */}
         <div className="dots" />
-        <NavLink title="Download" destination="download" activate={-100} />{" "}
+        <NavLink title="Download" destination="download" activate={-10} />{" "}
         {/* Added destination */}
       </div>
     </header>

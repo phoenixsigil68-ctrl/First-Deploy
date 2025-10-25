@@ -47,7 +47,7 @@ export const Features = () => {
                     src={index.icon}
                     className="size-20 relative z-10 hover:scale-110 transition-transform duration-300 ease-in"
                   />
-                  <div className="absolute inset-0 rounded-full scale-0 group-hover:scale-150 opacity-0 group-hover:opacity-100 blur-2xl bg-white/30 transition-all duration-500"></div>
+                  <div className="absolute inset-0 rounded-full scale-0 group-hover:scale-150 opacity-0 group-hover:opacity-100 blur-2xl bg-white/30 transition-all duration-200"></div>
                 </div>
 
                 <h2 className="text-xl uppercase text-p5 text-center font-bold">

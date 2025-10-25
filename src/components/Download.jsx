@@ -6,7 +6,7 @@ import { links } from "../constants";
 
 export const Download = () => {
   return (
-    <section className="mt-10 mb-45">
+    <section className="mt-10 mb-15">
       <Element name="download">
         <div className="container-2 g7 flex flex-col justify-center items-start gap-8 py-10 px-6 rounded-2xl cursor-default">
           <div className="flex justify-start items-center">
