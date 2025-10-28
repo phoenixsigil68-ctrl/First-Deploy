@@ -4,6 +4,7 @@ import { Windows, Web, Android, Ios } from "../constants";
 import { Marker } from "./Marker";
 import { links } from "../constants";
 import { useInView } from "react-intersection-observer";
+import { Link } from "react-router-dom";
 
 export const Download = () => {
   const [fade3, inFade3] = useInView({ threshold: 0.9, triggerOnce: true });
@@ -28,12 +29,15 @@ export const Download = () => {
           </div>
           <div className="flex justify-evenly items-center w-full mt-4 ">
             {links.map((item) => (
-              <div className="before:absolute before:inset-1.5 before:rounded-half before:content-[''] hover:border-s4 relative flex size-22 items-center justify-center rounded-full border-2 border-s3 bg-s1 transition-all duration-500 hover:scale-120 hover:cursor-pointer">
-                <span className="absolute rotate-90 -top-2">
-                  <Marker />
-                </span>
-                <span>{item.icon}</span>
-              </div>
+              <Link to="/chatbot">
+                <div className="before:absolute before:inset-1.5 before:rounded-half before:content-[''] hover:border-s4 relative flex size-22 items-center justify-center rounded-full border-2 border-s3 bg-s1 transition-all duration-500 hover:scale-120 hover:cursor-pointer">
+                  <span className="absolute rotate-90 -top-2">
+                    <Marker />
+                  </span>
+
+                  <span>{item.icon}</span>
+                </div>
+              </Link>
             ))}
           </div>
         </div>

@@ -1,20 +1,13 @@
-import { useState } from "react";
-import { Header } from "./components/Header";
-import { Hero } from "./components/Hero";
-import { Features } from "./components/Features";
-import { Pricing } from "./components/Pricing";
-import { Faq } from "./components/Faq";
-import { Download } from "./components/Download";
+import { Route, Routes } from "react-router-dom";
+import { LandingPage } from "./components/LandingPage";
+import { MainPage } from "./components/Chat/MainPage";
+
 function App() {
   return (
-    <main className="overflow-hidden">
-      <Header />
-      <Hero />
-      <Features />
-      <Pricing />
-      <Faq />
-      <Download />
-    </main>
+    <Routes>
+      <Route index element={<LandingPage />}></Route>
+      <Route path="/chatbot" element={<MainPage />}></Route>
+    </Routes>
   );
 }
 

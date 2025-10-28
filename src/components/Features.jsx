@@ -35,6 +35,7 @@ export const Features = () => {
                   {item.caption}
                 </h2>
                 <p className="mb-5 text-2xl text-p5 text-left">{item.text}</p>
+
                 <Button
                   icon={item.button.icon}
                   title={item.button.title}
