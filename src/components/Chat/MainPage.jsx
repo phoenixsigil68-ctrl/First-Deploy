@@ -5,6 +5,7 @@ import { GoogleGenAI } from "@google/genai";
 import ReactMarkdown from "react-markdown";
 import { Link as LinkScroll } from "react-scroll";
 import { Element } from "react-scroll";
+import { SignInModal } from "./SignInModal";
 
 // ✨ Imports for Syntax Highlighting
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
@@ -16,6 +17,8 @@ const apiKey = import.meta.env.VITE_GEMINI_API_KEY;
 // 2. Pass the key explicitly to the GoogleGenAI constructor
 const ai = new GoogleGenAI({ apiKey });
 
+const systemConfig = `You are a smart AI. Your name is Xora. You are a assistant for students and you should guide the students in their studies. You can also use the name of the user which is defined in the username variable. First greet the user by their name. You only need to ask students about their standard and subject when they ask you to study specific subject otherwise you can skip the asking part. First you need to ask about the students' subjects and their class in one question. After the students reply about their class and subject, you should remember it don't forget that information. Then you should start guiding the students from remembering the information you earned moments ago. According their subject and class guide them. You should answer all responses in Gujarati language even when user uses English language. You can use English in some scenarios. Your answers should be accurate. If student asks for his any subject you should ask which standard they are studying in and answer accordingly.`;
+
 // 🧠 MODIFIED: Function now accepts the entire conversation history
 async function generateContent(contents) {
   try {
@@ -24,8 +27,7 @@ async function generateContent(contents) {
       // 🧠 Send the full history here!
       contents: contents,
       config: {
-        systemInstruction:
-          "You are a smart AI. Your name is Xora. You are a assistant for students and you should guide the students in their studies. You only need to ask students about their standard and subject when they ask you to study specific subject otherwise you can skip the asking part. First you need to ask about the students' subjects and their class in one question. After the students reply about their class and subject, you should remember it don't forget that information. Then you should start guiding the students from remembering the information you earned moments ago. According their subject and class guide them. You should answer all responses in Gujarati language even when user uses English language. You can use English in some scenarios. Your answers should be accurate. If student asks for his any subject you should ask which standard they are studying in and answer accordingly.",
+        systemInstruction: systemConfig,
       },
     });
     return response.text;
@@ -143,14 +145,25 @@ export const MainPage = () => {
     }
   };
 
+  const [username, setUsername] = useState("");
+
+  const handleSignInSuccess = (signedInUsername) => {
+    // 1. Store the username
+    setUsername(signedInUsername);
+    // 2. Grant access
+    setNotSignIn(false);
+  };
+
+  const [notSignIn, setNotSignIn] = useState(true);
+
   return (
     // SCROLL FIX 1: Set fixed height (h-screen) and use flex layout
-    <div className="w-full h-screen flex bg-white">
+    <div className={`w-full h-screen flex bg-white`}>
       {/* Sidebar (Fixed position and height is handled by its own classes) */}
       <div
         className={`bg-[#f0f4f9] z-20 h-dvh fixed top-0 transition-all duration-300 ${
           isOpen ? "w-40" : "w-20"
-        }`}
+        } ${notSignIn ? "bg-gray-300" : ""}`}
       >
         <div className="grid grid-cols-1 grid-rows-[auto_1fr_auto] h-full py-5 justify-items-center gap-y-7">
           <div className="flex justify-center items-center gap-3 w-full">
@@ -199,12 +212,15 @@ export const MainPage = () => {
               })}
           </div>
           <div className="flex flex-col items-center gap-5">
-            <div className={setBackground}>
+            <div
+              className={`${setBackground} flex justify-center items-center`}
+            >
               <img src={assets.question_icon} className="w-[30px] h-[30px]" />
+              {isOpen && <span className="text-lg ml-2 text-nowrap">Help</span>}
             </div>
-            <div className="cursor-pointer">
+            <div className="cursor-pointer relative">
               <span
-                className="text-2xl"
+                className="text-2xl "
                 onClick={() => {
                   setShowResult(false);
                   setInput("");
@@ -214,6 +230,9 @@ export const MainPage = () => {
                 }}
               >
                 ➕
+                {isOpen && (
+                  <span className="text-lg ml-2 text-nowrap">New Chat</span>
+                )}
               </span>
             </div>
             <div className={setBackground}>
@@ -228,7 +247,7 @@ export const MainPage = () => {
         className={`bg-white w-full h-screen flex flex-col transition-all duration-300 ${
           // Adjusted padding to start correctly from the side of the fixed sidebar
           isOpen ? "pl-[170px] pr-10" : "pl-[100px] pr-10"
-        }`}
+        } `}
       >
         {/* Header: Must not shrink (flex-shrink-0 is implied here) */}
         <div
@@ -286,7 +305,7 @@ export const MainPage = () => {
                           ...Thinking...
                         </p>
                       ) : (
-                        <div className="text-xl/[37px] font-bold anek">
+                        <div className="text-xl/[43px] font-bold anek">
                           <ReactMarkdown
                             children={String(turn.response)}
                             // ✨ Pass the custom component map here!
@@ -305,7 +324,7 @@ export const MainPage = () => {
             <div className={`w-full`}>
               <div className="mt-15 w-full">
                 <h1 className="text-[56px] text-start text-transparent bg-clip-text bg-linear-25 from-[#4b90ff] to-[#ff5546] font-bold roboto">
-                  Hello, Student
+                  Hello, {username}
                 </h1>
                 <h1 className="text-[56px] text-start font-bold roboto text-[#C4C7C5] ">
                   {" "}
@@ -400,6 +419,7 @@ export const MainPage = () => {
           </p>
         </div>
       </div>
+      {notSignIn && <SignInModal onSignInSuccess={handleSignInSuccess} />}
     </div>
   );
 };
