@@ -202,8 +202,19 @@ export const MainPage = () => {
             <div className={setBackground}>
               <img src={assets.question_icon} className="w-[30px] h-[30px]" />
             </div>
-            <div className={setBackground}>
-              <img src={assets.history_icon} className="w-[30px] h-[30px]" />
+            <div className="cursor-pointer">
+              <span
+                className="text-2xl"
+                onClick={() => {
+                  setShowResult(false);
+                  setInput("");
+                  setConversationHistory([]);
+                  setRecentPrompt("");
+                  setAllPrompts([]);
+                }}
+              >
+                ➕
+              </span>
             </div>
             <div className={setBackground}>
               <img src={assets.setting_icon} className="w-[30px] h-[30px]" />
@@ -325,15 +336,30 @@ export const MainPage = () => {
                   Suggest me some brain exercises.
                   <img src={assets.compass_icon} className={setIcon} />
                 </div>
-                <div className={setCardStyle}>
+                <div
+                  className={setCardStyle}
+                  onClick={(e) => {
+                    setInput(e.target.textContent);
+                  }}
+                >
                   Help me summarize my course in a week.
                   <img src={assets.bulb_icon} className={setIcon} />
                 </div>
-                <div className={setCardStyle}>
+                <div
+                  className={setCardStyle}
+                  onClick={(e) => {
+                    setInput(e.target.textContent);
+                  }}
+                >
                   Give me some good quotes of scientists.
                   <img src={assets.message_icon} className={setIcon} />
                 </div>
-                <div className={setCardStyle}>
+                <div
+                  className={setCardStyle}
+                  onClick={(e) => {
+                    setInput(e.target.textContent);
+                  }}
+                >
                   Let's make notes about the Maths chapter 1.
                   <img src={assets.code_icon} className={setIcon} />
                 </div>
