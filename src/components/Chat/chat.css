@@ -1,10 +1,26 @@
 @import "tailwindcss";
 
 @import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap");
+
+@import url("https://fonts.googleapis.com/css2?family=Anek+Gujarati:wght@100..800&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap");
+
 .grid-container {
   grid-template-rows: repeat(minmax(200px, 1fr));
 }
 
 .roboto {
   font-family: "Roboto", sans-serif;
+}
+
+#button {
+  scale: 0%;
+}
+
+#show-icon:focus,
+#show-icon:valid ~ #button {
+  scale: 100%;
+}
+
+.anek {
+  font-family: "Anek Gujarati", sans-serif;
 }
