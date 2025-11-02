@@ -6,6 +6,7 @@ import ReactMarkdown from "react-markdown";
 import { Link as LinkScroll } from "react-scroll";
 import { Element } from "react-scroll";
 import { SignInModal } from "./SignInModal";
+import { Bot } from "lucide-react";
 
 // ✨ Imports for Syntax Highlighting
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
@@ -298,11 +299,8 @@ export const MainPage = () => {
                   </Element>
 
                   {/* AI Response */}
-                  <div className="flex items-start gap-4">
-                    <img
-                      src="/public/favicon.ico"
-                      className="w-[40px] h-auto flex-shrink-0"
-                    />
+                  <div className="flex items-start justify-start gap-4 relative">
+                    <Bot className="size-10" />
                     <div className="text-xl font-medium text-gray-900 prose max-w-none poppins">
                       {/* Show loading state only on the latest turn's response while loading */}
                       {index === conversationHistory.length - 1 &&
