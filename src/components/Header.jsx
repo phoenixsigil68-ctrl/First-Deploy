@@ -3,7 +3,6 @@ import "../index.css";
 import { useState, useEffect } from "react";
 import { Link as LinkScroll } from "react-scroll";
 import clsx from "clsx";
-import { translateText } from "../Locales/translate";
 
 export const Header = () => {
   function NavLink({ title, destination, activate }) {

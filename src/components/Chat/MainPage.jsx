@@ -71,6 +71,7 @@ export const MainPage = () => {
   const [input, setInput] = useState("");
   const [showResult, setShowResult] = useState(false);
   const [allPrompts, setAllPrompts] = useState([]);
+  const [menu, setMenu] = useState(false);
 
   // State for full conversation history (all prompt/response pairs)
   const [conversationHistory, setConversationHistory] = useState([]);
@@ -235,8 +236,14 @@ export const MainPage = () => {
                 )}
               </span>
             </div>
-            <div className={setBackground}>
+            <div
+              className={`${setBackground} flex relative justify-center items-center gap-2 text-nowrap menu`}
+              onClick={() => {
+                setMenu(true);
+              }}
+            >
               <img src={assets.setting_icon} className="w-[30px] h-[30px]" />
+              {isOpen && <span>Settings</span>}
             </div>
           </div>
         </div>
@@ -261,7 +268,7 @@ export const MainPage = () => {
           </h1>
           <div className="rounded-full overflow-hidden">
             <img
-              src={assets.user_icon}
+              src={assets.profile}
               className="w-[60px] h-[60px] hover:w-[70px] hover:h-[70px] transition-all duration-400"
             />
           </div>
